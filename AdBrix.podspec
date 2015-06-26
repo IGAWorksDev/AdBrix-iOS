@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "AdBrix"
-s.version      = "1.0.0"
+s.version      = "1.0"
 s.summary      = "AdBrix.framework"
 s.homepage     = "https://github.com/IGAWorksDev/AdBrix-iOS"
 
@@ -22,5 +22,5 @@ s.ios.vendored_frameworks = 'AdBrix.framework'
 s.frameworks = 'MessageUI', 'Social'
 s.libraries = 'xml2'
 s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
-s.dependency 'AFNetworking', '~> 1.0'
+s.dependency 'IgaworksCore', '~> 1.0'
 end
