@@ -22,4 +22,5 @@ s.ios.vendored_frameworks = 'AdBrix.framework'
 s.frameworks = 'MessageUI', 'Social'
 s.libraries = 'xml2'
 s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
+s.dependency 'IgaworksCore', '~> 1.0.0'
 end
