@@ -16,11 +16,10 @@ LICENSE
 }
 
 s.platform = :ios, '6.0'
-s.author       = { "wonje,song" => "wonje@igaworks.com" }
+s.author       = { "wonje,song" => "ricky@igaworks.com" }
 s.source       = { :git => "https://github.com/IGAWorksDev/AdBrix-iOS.git", :tag => "#{s.version}" }
 s.ios.vendored_frameworks = 'AdBrix.framework'
 s.frameworks = 'MessageUI', 'Social'
 s.libraries = 'xml2'
 s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
-s.dependency 'IgaworksCore', '~> 1.0'
 end
