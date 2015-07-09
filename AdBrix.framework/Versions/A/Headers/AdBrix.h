@@ -17,17 +17,6 @@ typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
     AdBrixCustomCohort_3 = 3
 };
 
-typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
-{
-    AdBrixCurrencyKRW = 1,
-    AdBrixCurrencyUSD = 2,
-    AdBrixCurrencyJPY = 3,
-    AdBrixCurrencyEUR = 4,
-    AdBrixCurrencyGBP = 5,
-    AdBrixCurrencyCHY = 6,
-    AdBrixCurrencyTWD = 7,
-    AdBrixCurrencyHKD = 8
-};
 
 @interface AdBrix : NSObject
 
