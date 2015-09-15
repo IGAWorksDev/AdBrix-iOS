@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 s.name         = "AdBrix"
-s.version      = "1.0"
+s.version      = "2.0"
 s.summary      = "AdBrix.framework"
 s.homepage     = "https://github.com/IGAWorksDev/AdBrix-iOS"
 
@@ -16,10 +16,9 @@ LICENSE
 }
 
 s.platform = :ios, '6.0'
-s.author       = { "wonje,song" => "ricky@igaworks.com" }
+s.author       = { "wonje,song" => "wonje@igaworks.com" }
 s.source       = { :git => "https://github.com/IGAWorksDev/AdBrix-iOS.git", :tag => "#{s.version}" }
 s.ios.vendored_frameworks = 'AdBrix.framework'
-s.frameworks = 'MessageUI', 'Social'
 s.libraries = 'xml2'
 s.xcconfig     = { 'HEADER_SEARCH_PATHS' => '"$(SDKROOT)/usr/include/libxml2"' }
 end
