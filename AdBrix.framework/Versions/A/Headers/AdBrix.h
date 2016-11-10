@@ -10,6 +10,8 @@
 
 #import <UIKit/UIKit.h>
 
+#import "AdBrixItem.h"
+
 typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
 {
     AdBrixCustomCohort_1 = 1,
@@ -17,6 +19,17 @@ typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
     AdBrixCustomCohort_3 = 3
 };
 
+typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
+{
+    AdBrixCurrencyKRW = 1,
+    AdBrixCurrencyUSD = 2,
+    AdBrixCurrencyJPY = 3,
+    AdBrixCurrencyEUR = 4,
+    AdBrixCurrencyGBP = 5,
+    AdBrixCurrencyCHY = 6,
+    AdBrixCurrencyTWD = 7,
+    AdBrixCurrencyHKD = 8
+};
 
 @interface AdBrix : NSObject
 
@@ -61,14 +74,13 @@ typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
  */
 + (void)retention:(NSString *)activityName param:(NSString *)param;
 
-
 /*!
  @abstract
  buy의 Activity에 해당할때 호출한다.
  
  @param activityName              activity name.
  */
-+ (void)buy:(NSString *)activityName;
++ (void)buy:(NSString *)activityName  __attribute__((deprecated("use -purchase: instead")));
 
 /*!
  @abstract
@@ -90,6 +102,19 @@ typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
  @param filterName                filter Name
  */
 + (void)setCustomCohort:(AdBrixCustomCohortType)customCohortType filterName:(NSString *)filterName;
+
+
+#pragma mark - Commerce
+
++ (void)purchase:(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
+
++ (void)purchaseList:(NSArray*)orderInfo;
+
++ (void)purchase:(NSString*)purchaseDataJsonString;
+
++ (NSString *)currencyName:(NSUInteger)currency;
+
++ (AdBrixItem*)createItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
 
 
 @end
