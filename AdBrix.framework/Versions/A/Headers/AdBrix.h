@@ -89,7 +89,7 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
  @param activityName              activity name.
  @param param                     parameter.
  */
-+ (void)buy:(NSString *)activityName param:(NSString *)param;
++ (void)buy:(NSString *)activityName param:(NSString *)param  __attribute__((deprecated("use -purchase: instead")));
 
 
 + (void)showViralCPINotice:(UIViewController *)viewController;
