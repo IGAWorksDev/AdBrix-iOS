@@ -110,11 +110,13 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
 
 + (void)purchaseList:(NSArray*)orderInfo;
 
-+ (void)purchase:(NSString*)purchaseDataJsonString;
++ (void)purchase:(NSString*)purchaseDataJsonString __attribute__((deprecated("use -other purchase api: instead")));
 
 + (NSString *)currencyName:(NSUInteger)currency;
 
-+ (AdBrixItem*)createItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
++ (AdBrixItem*)createItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories __attribute__((deprecated("use -PurchaseItemModel: instead")));
+    
++ (AdBrixItem*)PurchaseItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
 
 
 @end

@@ -11,7 +11,7 @@
 @interface AdBrixItem : NSObject
 
 - (AdBrixItem*)create :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
-
+    
 - (NSString *)getOrderId;
 - (NSString *)getProductId;
 - (double)getPrice;
