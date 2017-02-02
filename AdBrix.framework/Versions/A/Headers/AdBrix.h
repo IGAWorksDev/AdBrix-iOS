@@ -11,6 +11,10 @@
 #import <UIKit/UIKit.h>
 
 #import "AdBrixItem.h"
+#import "AdBrixCommerceProductModel.h"
+#import "AdBrixCommerceProductCategoryModel.h"
+#import "AdBrixCommerceProductAttrModel.h"
+
 
 typedef NS_ENUM(NSInteger, AdBrixCustomCohortType)
 {
@@ -30,6 +34,32 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
     AdBrixCurrencyTWD = 7,
     AdBrixCurrencyHKD = 8
 };
+
+typedef NS_ENUM(NSInteger, AdbrixPaymentMethod)
+{
+    AdBrixPaymentCreditCard = 1,
+    AdBrixPaymentBankTransfer,
+    AdBrixPaymentMobilePayment,
+    AdBrixPaymentETC
+};
+
+typedef NS_ENUM(NSInteger, AdBrixSharingChannel)
+{
+    AdBrixSharingFacebook,
+    AdBrixSharingKakaoTalk,
+    AdBrixSharingKakaoStory,
+    AdBrixSharingLine,
+    AdBrixSharingWhatsApp,
+    AdBrixSharingQQ,
+    AdBrixSharingWeChat,
+    AdBrixSharingSMS,
+    AdBrixSharingEmail,
+    AdBrixSharingCopyUrl,
+    AdBrixSharingETC
+};
+
+
+
 
 @interface AdBrix : NSObject
 
@@ -106,17 +136,63 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
 
 #pragma mark - Commerce
 
-+ (void)purchase:(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
++ (void)purchase:(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories __attribute__((deprecated("use -commercePurchase: instead")));
 
-+ (void)purchaseList:(NSArray*)orderInfo;
++ (void)purchaseList:(NSArray*)orderInfo __attribute__((deprecated("use -commercePurchase: instead")));
 
-+ (void)purchase:(NSString*)purchaseDataJsonString __attribute__((deprecated("use -other purchase api: instead")));
++ (void)purchase:(NSString*)purchaseDataJsonString __attribute__((deprecated("use -commercePurchase api: instead")));
 
 + (NSString *)currencyName:(NSUInteger)currency;
 
-+ (AdBrixItem*)createItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories __attribute__((deprecated("use -PurchaseItemModel: instead")));
++ (NSString *)paymentMethod:(NSUInteger)method;
+
++ (NSString *)sharingChannel:(NSUInteger)channel;
+
++ (AdBrixItem*)createItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories __attribute__((deprecated("use -createCommerceProductModel with commercePurchase api: instead")));
     
-+ (AdBrixItem*)PurchaseItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories;
++ (AdBrixItem*)PurchaseItemModel :(NSString*)orderId productId:(NSString*)productId productName:(NSString*)productName price:(double)price quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(NSString*)categories __attribute__((deprecated("use -createCommerceProductModel with commercePurchase api: instead")));
 
+#pragma mark - CommerceV2
 
++ (AdBrixCommerceProductModel*)createCommerceProductModel :(NSString*)productId productName:(NSString*)productName price:(double)price discount:(double)discount quantity:(NSUInteger)quantity currencyString:(NSString *)currencyString category:(AdBrixCommerceProductCategoryModel*)categories extraAttrsMap:(AdBrixCommerceProductAttrModel *)extraAttrs;
+
++ (void)purchase:(NSString *)prodictId price:(double)price currency:(NSString*)currency paymentMethod:(NSString *)paymentMethod;
+
++ (void)purchase:(NSString *)orderId product:(AdBrixCommerceProductModel *)product paymentMethod:(NSString *)paymentMethod;
+
++ (void)purchase:(NSString *)orderId productsInfos:(NSArray *)productsInfos paymentMethod:(NSString *)paymentMethod;
+
++ (void)commercePurchase:(NSString *)prodictId price:(double)price currency:(NSString*)currency paymentMethod:(NSString *)paymentMethod;
+
++ (void)commercePurchase:(NSString *)orderId product:(AdBrixCommerceProductModel *)product discount:(double)discount deliveryCharge:(double)deliveryCharge paymentMethod:(NSString *)paymentMethod;
+
++ (void)commercePurchase:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge paymentMethod:(NSString *)paymentMethod;
+
++ (void)commerceDeeplinkOpen : (NSString *)deeplinkUrl;
+
++ (void)commerceLogin : (NSString *)userId;
+
++ (void)commerceRefund:(NSString *)orderId product:(AdBrixCommerceProductModel *)product penaltyCharge:(double)penaltyCharge;
+
++ (void)commerceRefundBulk:(NSString *)orderId productsInfos:(NSArray *)productsInfos penaltyCharge:(double)penaltyCharge;
+
++ (void)commerceAddToCart:(AdBrixCommerceProductModel *)product;
+
++ (void)commerceAddToCartBulk:(NSArray *)productsInfos;
+
++ (void)commerceAddToWishList:(AdBrixCommerceProductModel *)product;
+
++ (void)commerceProductView:(AdBrixCommerceProductModel*)product;
+
++ (void)commerceCategoryView:(AdBrixCommerceProductCategoryModel*)category;
+
++ (void)commerceReviewOrder:(NSString *)orderId product:(AdBrixCommerceProductModel *)product discount:(double)discount deliveryCharge:(double)deliveryCharge;
+
++ (void)commerceReviewOrderBulk:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge;
+
++ (void)commercePaymentView:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge;
+
++ (void)commerceSearch:(NSArray *)productsInfos keyword:(NSString *) keyword;
+
++ (void)commerceShare:(NSString*)channel product:(AdBrixCommerceProductModel *)product;
 @end
