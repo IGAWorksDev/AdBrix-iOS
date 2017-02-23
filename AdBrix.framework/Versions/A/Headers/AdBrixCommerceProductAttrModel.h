@@ -16,11 +16,11 @@
 
 + (AdBrixCommerceProductAttrModel*)create :(NSDictionary *)attrData;
 
-- (void)setKeyAndVal :(int)pIndex key:(NSString *)key value:(NSString *)value;
+- (void)AdBrixCommerceProductAttrModelsetKeyAndVal :(int)pIndex key:(NSString *)key value:(NSString *)value;
 
-- (NSString *)getKey :(int)pIndex;
+- (NSString *)AdBrixCommerceProductAttrModelgetKey :(int)pIndex;
 
-- (NSString *)getValue :(int)pIndex;
+- (NSString *)AdBrixCommerceProductAttrModelgetValue :(int)pIndex;
 
 @end
 

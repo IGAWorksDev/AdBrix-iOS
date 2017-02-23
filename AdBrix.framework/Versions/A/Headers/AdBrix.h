@@ -30,32 +30,32 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
     AdBrixCurrencyJPY = 3,
     AdBrixCurrencyEUR = 4,
     AdBrixCurrencyGBP = 5,
-    AdBrixCurrencyCHY = 6,
+    AdBrixCurrencyCNY = 6,
     AdBrixCurrencyTWD = 7,
     AdBrixCurrencyHKD = 8
 };
 
 typedef NS_ENUM(NSInteger, AdbrixPaymentMethod)
 {
-    AdBrixPaymentCreditCard = 1,
-    AdBrixPaymentBankTransfer,
-    AdBrixPaymentMobilePayment,
-    AdBrixPaymentETC
+    AdBrixPaymentCreditCard         = 1,
+    AdBrixPaymentBankTransfer       = 2,
+    AdBrixPaymentMobilePayment      = 3,
+    AdBrixPaymentETC                = 4
 };
 
 typedef NS_ENUM(NSInteger, AdBrixSharingChannel)
 {
-    AdBrixSharingFacebook,
-    AdBrixSharingKakaoTalk,
-    AdBrixSharingKakaoStory,
-    AdBrixSharingLine,
-    AdBrixSharingWhatsApp,
-    AdBrixSharingQQ,
-    AdBrixSharingWeChat,
-    AdBrixSharingSMS,
-    AdBrixSharingEmail,
-    AdBrixSharingCopyUrl,
-    AdBrixSharingETC
+    AdBrixSharingFacebook       = 1,
+    AdBrixSharingKakaoTalk      = 2,
+    AdBrixSharingKakaoStory     = 3,
+    AdBrixSharingLine           = 4,
+    AdBrixSharingWhatsApp       = 5,
+    AdBrixSharingQQ             = 6,
+    AdBrixSharingWeChat         = 7,
+    AdBrixSharingSMS            = 8,
+    AdBrixSharingEmail          = 9,
+    AdBrixSharingCopyUrl        = 10,
+    AdBrixSharingETC            = 11
 };
 
 
