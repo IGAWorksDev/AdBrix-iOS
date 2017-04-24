@@ -186,6 +186,8 @@ typedef NS_ENUM(NSInteger, AdBrixSharingChannel)
 
 + (void)commerceCategoryView:(AdBrixCommerceProductCategoryModel*)category;
 
++ (void)commerceCategoryView:(AdBrixCommerceProductCategoryModel*)category productsInfos:(NSArray *)productsInfos;
+
 + (void)commerceReviewOrder:(NSString *)orderId product:(AdBrixCommerceProductModel *)product discount:(double)discount deliveryCharge:(double)deliveryCharge;
 
 + (void)commerceReviewOrderBulk:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge;
@@ -195,4 +197,48 @@ typedef NS_ENUM(NSInteger, AdBrixSharingChannel)
 + (void)commerceSearch:(NSArray *)productsInfos keyword:(NSString *) keyword;
 
 + (void)commerceShare:(NSString*)channel product:(AdBrixCommerceProductModel *)product;
+
+#pragma mark - Overloaded CommerceV2
+
++ (void)purchase:(NSString *)prodictId price:(double)price currency:(NSString*)currency paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)purchase:(NSString *)orderId product:(AdBrixCommerceProductModel *)product paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)purchase:(NSString *)orderId productsInfos:(NSArray *)productsInfos paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)commercePurchase:(NSString *)prodictId price:(double)price currency:(NSString*)currency paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)commercePurchase:(NSString *)orderId product:(AdBrixCommerceProductModel *)product discount:(double)discount deliveryCharge:(double)deliveryCharge paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)commercePurchase:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge paymentMethod:(NSString *)paymentMethod atrrData: (NSDictionary *)attrData;
+
++ (void)commerceDeeplinkOpen : (NSString *)deeplinkUrl atrrData: (NSDictionary *)attrData;
+
++ (void)commerceLogin : (NSString *)userId atrrData: (NSDictionary *)attrData;
+
++ (void)commerceRefund:(NSString *)orderId product:(AdBrixCommerceProductModel *)product penaltyCharge:(double)penaltyCharge atrrData: (NSDictionary *)attrData;
+
++ (void)commerceRefundBulk:(NSString *)orderId productsInfos:(NSArray *)productsInfos penaltyCharge:(double)penaltyCharge atrrData: (NSDictionary *)attrData;
+
++ (void)commerceAddToCart:(AdBrixCommerceProductModel *)product atrrData: (NSDictionary *)attrData;
+
++ (void)commerceAddToCartBulk:(NSArray *)productsInfos atrrData: (NSDictionary *)attrData;
+
++ (void)commerceAddToWishList:(AdBrixCommerceProductModel *)product atrrData: (NSDictionary *)attrData;
+
++ (void)commerceProductView:(AdBrixCommerceProductModel*)product atrrData: (NSDictionary *)attrData;
+
++ (void)commerceCategoryView:(AdBrixCommerceProductCategoryModel*)category atrrData: (NSDictionary *)attrData;
+
++ (void)commerceCategoryView:(AdBrixCommerceProductCategoryModel*)category productsInfos:(NSArray *)productsInfos atrrData: (NSDictionary *)attrData;
+
++ (void)commerceReviewOrder:(NSString *)orderId product:(AdBrixCommerceProductModel *)product discount:(double)discount deliveryCharge:(double)deliveryCharge atrrData: (NSDictionary *)attrData;
+
++ (void)commerceReviewOrderBulk:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge atrrData: (NSDictionary *)attrData;
+
++ (void)commercePaymentView:(NSString *)orderId productsInfos:(NSArray *)productsInfos discount:(double)discount deliveryCharge:(double)deliveryCharge atrrData: (NSDictionary *)attrData;
+
++ (void)commerceSearch:(NSArray *)productsInfos keyword:(NSString *) keyword atrrData: (NSDictionary *)attrData;
+
++ (void)commerceShare:(NSString*)channel product:(AdBrixCommerceProductModel *)product atrrData: (NSDictionary *)attrData;
 @end
