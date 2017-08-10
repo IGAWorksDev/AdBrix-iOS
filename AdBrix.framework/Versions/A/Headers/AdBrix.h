@@ -133,6 +133,12 @@ typedef NS_ENUM(NSInteger, AdBrixSharingChannel)
  */
 + (void)setCustomCohort:(AdBrixCustomCohortType)customCohortType filterName:(NSString *)filterName;
 
+/*!
+ @abstract
+ activity 바로 전송
+ */
++ (void)flush;
+
 
 #pragma mark - Commerce
 
