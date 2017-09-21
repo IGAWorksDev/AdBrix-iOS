@@ -32,7 +32,13 @@ typedef NS_ENUM(NSInteger, AdBrixCurrencyType)
     AdBrixCurrencyGBP = 5,
     AdBrixCurrencyCNY = 6,
     AdBrixCurrencyTWD = 7,
-    AdBrixCurrencyHKD = 8
+    AdBrixCurrencyHKD = 8,
+    AdBrixCurrencyIDR = 9,
+    AdBrixCurrencyINR = 10,
+    AdBrixCurrencyRUB = 11,
+    AdBrixCurrencyTHB = 12,
+    AdBrixCurrencyVND = 13,
+    AdBrixCurrencyMYR = 14
 };
 
 typedef NS_ENUM(NSInteger, AdbrixPaymentMethod)
