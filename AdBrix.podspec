@@ -1,13 +1,13 @@
 Pod::Spec.new do |s|
 s.name         = "AdBrix"
-s.version      = "2.3.0"
+s.version      = "2.3.1"
 s.summary      = "AdBrix.framework"
 s.homepage     = "https://github.com/IGAWorksDev/AdBrix-iOS"
 
 s.license      = {
 :type => 'Commercial',
 :text => <<-LICENSE
-All text and design is copyright 2006-2015 igaworks, Inc.
+All text and design is copyright 2006-2020 igaworks, Inc.
 
 All rights reserved.
 
